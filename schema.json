@@ -17,7 +17,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "name": {
@@ -59,7 +59,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "command": {
@@ -104,7 +104,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "link": {
@@ -156,7 +156,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "link": {
@@ -201,7 +201,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "link": {
@@ -240,7 +240,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "package": {
@@ -286,7 +286,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "package": {
@@ -326,7 +326,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "package": {
@@ -372,7 +372,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "bucket": {
@@ -411,7 +411,7 @@
                                     "title": "Label that will be prompted to the user.",
                                     "type": "string",
                                     "maxLength": 30,
-                                    "pattern": "^[\\w ]+$",
+                                    "pattern": "^[^\\n\\t]+$",
                                     "default": ""
                                 },
                                 "link": {

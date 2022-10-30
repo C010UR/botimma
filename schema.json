@@ -42,7 +42,7 @@
                             "required": [
                                 "label",
                                 "name",
-                                "password",
+                                "secure",
                                 "note"
                             ]
                         }

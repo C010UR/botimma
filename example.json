@@ -1,0 +1,91 @@
+{
+    "$schema": "https://raw.githubusercontent.com/C010UR/botimma/main/schema.json",
+    "commands": {
+        "input": [
+            {
+                "label": "Git password if present",
+                "name": "password",
+                "secure": true,
+                "note": "If you don't need to input git passwords when cloning repos, skip this prompt"
+            }
+        ],
+        "command": [
+            {
+                "label": "Echoes some text",
+                "command": "echo 'some text'",
+                "elevated": false,
+                "silent": false,
+                "note": "This note echoes some text"
+            }
+        ],
+        "file": [
+            {
+                "label": "Example file",
+                "link": "https://example.com",
+                "path": "c:\\users\\test\\desktop\\test.json",
+                "safe": true,
+                "extract": false,
+                "note": "<note>"
+            }
+        ],
+        "git_clone": [
+            {
+                "label": "<label>",
+                "link": "git:{{password}}@github.com:C010UR/botimma.git",
+                "path": "c:\\users\\test\\desktop\\test-dir",
+                "safe": true,
+                "note": "<note>"
+            }
+        ],
+        "msi": [
+            {
+                "label": "<label>",
+                "link": "https://example.com",
+                "quiet": true,
+                "note": "<note>"
+            }
+        ],
+        "powershell_module": [
+            {
+                "label": "<label>",
+                "package": "<package>",
+                "version": "1",
+                "exact": false,
+                "note": "<note>"
+            }
+        ],
+        "winget": [
+            {
+                "label": "<label>",
+                "package": "<package>",
+                "version": "1",
+                "note": "<note>"
+            }
+        ],
+        "chocolatey": [
+            {
+                "label": "<label>",
+                "package": "<package>",
+                "stop_updating": true,
+                "version": "1",
+                "note": "<note>"
+            }
+        ],
+        "scoop": [
+            {
+                "label": "<label>",
+                "bucket": "<bucket>",
+                "package": "<package>",
+                "note": "<note>"
+            }
+        ],
+        "configs": [
+            {
+                "label": "<label>",
+                "link": "https://example.com",
+                "path": "c:\\users\\test\\desktop\\test-dir\\config.json",
+                "note": "<note>"
+            }
+        ]
+    }
+}

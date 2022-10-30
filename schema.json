@@ -1,0 +1,449 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "commands": {
+            "title": "List of commands that will be executed.",
+            "type": "object",
+            "properties": {
+                "input": {
+                    "title": "Variables that will be prompted to the user and can be used in the code later.",
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "name": {
+                                    "title": "Name of the variable. Later they can be used like this: {{variable_name}}.",
+                                    "type": "string",
+                                    "minLength": 3,
+                                    "maxLength": 30,
+                                    "pattern": "^\\w+$"
+                                },
+                                "secure": {
+                                    "title": "If the variable should be secure (defaults to false).",
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "name",
+                                "password",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "command": {
+                    "title": "Commands that will be executed at the end.",
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "command": {
+                                    "title": "Command that will be executed.",
+                                    "type": "string"
+                                },
+                                "elevated": {
+                                    "title": "If the command should be executed with admin rights (defaults to false).",
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "silent": {
+                                    "title": "If the command should not output anything to the console (defaults to true).",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "command",
+                                "elevated",
+                                "silent",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "file": {
+                    "title": "Downloads a file/archive using a url and moves it to the folder",
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "link": {
+                                    "title": "File link.",
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "path": {
+                                    "title": "Path with a file name to save.",
+                                    "pattern": "^(\\w:)?(\\\\|\\/?[\\w\\-. ]+)+(\\\\|\\/)?$",
+                                    "type": "string"
+                                },
+                                "safe": {
+                                    "title": "If old file/folder should be renamed to <file.old> instead of deleting it (defaults to true).",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "extract": {
+                                    "title": "If archive should be extracted and placed in the specified folder (defaults to false).",
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "link",
+                                "path",
+                                "safe",
+                                "extract",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "git_clone": {
+                    "title": "Clones git repo and moves it to the specified path.",
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "link": {
+                                    "title": "File link.",
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "path": {
+                                    "title": "Path with a file name to save.",
+                                    "pattern": "^(\\w:)?(\\\\|\\/?[\\w\\-. ]+)+(\\\\|\\/)?$",
+                                    "type": "string"
+                                },
+                                "safe": {
+                                    "title": "If old file/folder should be renamed to <file.old> instead of deleting it (defaults to true).",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "link",
+                                "path",
+                                "safe",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "msi": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "link": {
+                                    "title": "File link.",
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "quiet": {
+                                    "title": "If msi should be installed in 'quiet' mode (defaults to true).",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "link",
+                                "quiet",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "powershell_module": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "package": {
+                                    "title": "Name of the package.",
+                                    "type": "string",
+                                    "pattern": "^[^\\s]+$"
+                                },
+                                "version": {
+                                    "title": "Minimum required version of the package.",
+                                    "type": "string",
+                                    "pattern": "^[\\d\\.]+$",
+                                    "default": ""
+                                },
+                                "exact": {
+                                    "title": "If the package should be installed exactly of the specified version (defaults to false).",
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "package",
+                                "version",
+                                "exact",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "winget": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "package": {
+                                    "title": "Name of the package.",
+                                    "type": "string",
+                                    "pattern": "^[^\\s]+$"
+                                },
+                                "version": {
+                                    "title": "Minimum required version of the package.",
+                                    "type": "string",
+                                    "pattern": "^[\\d\\.]+$",
+                                    "default": ""
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "package",
+                                "version",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "chocolatey": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "package": {
+                                    "title": "Name of the package.",
+                                    "type": "string",
+                                    "pattern": "^[^\\s]+$"
+                                },
+                                "stop_updating": {
+                                    "title": "If package should be pinned (defaults to false).",
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "version": {
+                                    "title": "Minimum required version of the package.",
+                                    "type": "string",
+                                    "pattern": "^[\\d\\.]+$",
+                                    "default": ""
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "package",
+                                "stop_updating",
+                                "version",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "scoop": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "bucket": {
+                                    "title": "Name of the bucket.",
+                                    "type": "string",
+                                    "pattern": "^[^\\s]+$"
+                                },
+                                "package": {
+                                    "title": "Name of the package.",
+                                    "type": "string",
+                                    "pattern": "^[^\\s]+$"
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "bucket",
+                                "package",
+                                "note"
+                            ]
+                        }
+                    ]
+                },
+                "configs": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "title": "Label that will be prompted to the user.",
+                                    "type": "string",
+                                    "maxLength": 30,
+                                    "pattern": "^[\\w ]+$",
+                                    "default": ""
+                                },
+                                "link": {
+                                    "title": "File link.",
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "path": {
+                                    "title": "Path with a file name to save.",
+                                    "pattern": "^(\\w:)?(\\\\|\\/?[\\w\\-. ]+)+(\\\\|\\/)?$",
+                                    "type": "string"
+                                },
+                                "note": {
+                                    "title": "Warns user about something.",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "default": ""
+                                }
+                            },
+                            "required": [
+                                "label",
+                                "link",
+                                "path",
+                                "note"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "required": [
+        "commands"
+    ]
+}
